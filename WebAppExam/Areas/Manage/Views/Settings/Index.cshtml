@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    int count = 1;
+}
+
+@model IEnumerable<Setting>
+
+<div class="card">
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>
+                            #
+                        </th>
+                        <th>
+                            Key
+                        </th>
+                        <th>
+                            Value
+                        </th>
+                        <th>
+                            Settings
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @(count++)
+                            </td>
+                            <td>
+                                @item.Key
+                            </td>
+                            <td>
+                                @item.Value
+                            </td>
+                            <td>
+                                <a class="btn btn-warning" asp-action="Edit" asp-controller="Settings" asp-route-id="@item.Id">Edit</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
