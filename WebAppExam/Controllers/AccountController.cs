@@ -47,7 +47,7 @@ namespace WebAppExam.Controllers
                     ModelState.AddModelError("", item.Description); return View();
                 }
             }
-            await _userManager.AddPasswordAsync(user, "member");
+            await _userManager.AddToRoleAsync(user, "member");
             await _signInManager.SignInAsync(user, false);
             return RedirectToAction("Index", "Home");
         }
